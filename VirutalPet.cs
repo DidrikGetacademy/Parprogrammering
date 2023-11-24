@@ -82,10 +82,12 @@ namespace ParProgrammeringPar
             foreach (var pet in virtualPets)
             {
                 Console.WriteLine($"{pet.name} - {pet.age} years old" +
-                                  $"{(pet.hungry ? "Hungry," : "Full,")} " +
-                                  $"{(pet.nuggle ? "Want cuddles," : "Cuddled,")}" +
-                                  $"{(pet.WC ? "needs toilet" : "i dont need toilet;")}");
-                
+                  $"{(pet.hungry ? "Hungry," : "Full,")} " +
+                  $"{(pet.nuggle ? "Want cuddles," : "Cuddled,")}" +
+                  $"{(pet.WC ? "needs toilet" : "i dont need toilet;")}");
+
+               
+
             }
 
         

@@ -13,28 +13,31 @@ namespace ParProgrammeringPar
             string petName = Console.ReadLine();
 
             var pet = new VirtualPet(petName);
+            petNames.Add(pet);
 
             int choice;
             do
             {
+                
+                
+                    Console.WriteLine($"1.feed {pet.name}");
+                    Console.WriteLine($"2.cuddle {pet.name}");
+                    Console.WriteLine($"3.check if {pet.name} needs to go to the toilet");
+                    Console.WriteLine("4.add a new pet");
+                    Console.WriteLine("5.show all pets");
+                    Console.WriteLine("Velg en handling(1-5)");
+                    choice = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine($"1.feed {pet.name} ");
-                Console.WriteLine($"2.cuddle {pet.name}");
-                Console.WriteLine($"3.check if {pet.name} needs to go to the toilet");
-                Console.WriteLine("4.add a new pet");
-                Console.WriteLine("5.show all pets");
-                Console.WriteLine("Velg en handling(1-5)");
-                choice = Convert.ToInt32(Console.ReadLine());
 
-
-
-                switch (choice)
+                    VirtualPet? newPet;
+                    switch (choice)
                 {
                     case 1:
                         pet.feed();
                         break;
                     case 2:
                         pet.cuddle();
+                        
                         break;
                     case 3:
                         pet.toilet();
@@ -42,23 +45,38 @@ namespace ParProgrammeringPar
                     case 4:
                         Console.WriteLine("What will you call your new pet?");
                         string newPetNames = Console.ReadLine();
-                        var newPet = new VirtualPet(newPetNames);
+                        newPet = new VirtualPet(newPetNames);
                         petNames.Add(newPet);
                         Console.WriteLine($"{newPetNames} has been added!");
+                        
+
+
+                        Console.WriteLine($"1.feed {newPet.name}");
+                        Console.WriteLine($"2.cuddle {newPet.name}");
+                        Console.WriteLine($"3.check if {newPet.name} needs to go to the toilet");
+                        Console.WriteLine("4.add a new pet");
+                        Console.WriteLine("5.show all pets");
+                        Console.WriteLine("Velg en handling(1-5)");
+                        choice = Convert.ToInt32(Console.ReadLine());
+
+                            
                         newPet.visStatus();
+
                         break;
                     case 5:
-                       pet.ShowAllPets(petNames);
+                        pet.ShowAllPets(petNames);
+                        Console.WriteLine("choose pet you want too show status");
 
                         break;
                     default:
                         Console.WriteLine("Invalid input, please try again!");
                         break;
                 }
-               
-                Console.WriteLine();
-               
+
+
+                
                 pet.visStatus();
+                Console.WriteLine();
             } while (choice != 0);
 
         }
